@@ -1,8 +1,8 @@
 # SeeThrough
 
-**Find your people indoors.**
+**Indoor understanding for robots, contributed by people.**
 
-SeeThrough helps people find each other inside buildings through a shared live floor plan. Participants join from their phones and share their room, while a web dashboard displays people and incoming motion data. The MVP supports confirmed room locations, raw sensor streams, and coordinate visualization as a foundation for indoor navigation.
+SeeThrough is an indoor mapping prototype designed to help robots navigate buildings and work alongside people. People contribute confirmed room locations, coordinates, and motion data through their phones. A live dashboard brings these inputs together, providing the foundation for robot navigation and human–robot coordination.
 
 [Open the live demo](https://seethrough-live.v-volokitinaa.chatgpt.site) · [API guide](https://seethrough-live.v-volokitinaa.chatgpt.site/api-guide)
 
@@ -22,7 +22,7 @@ SeeThrough
 
 ### Short project description
 
-SeeThrough helps people find each other inside buildings through a shared live floor plan. Participants join from their phones and share their room, while a web dashboard displays people and incoming motion data. The MVP supports confirmed room locations, raw sensor streams, and coordinate visualization as a foundation for indoor navigation.
+SeeThrough is an indoor mapping prototype designed to help robots navigate buildings and work alongside people. People contribute confirmed room locations, coordinates, and motion data through their phones. A live dashboard brings these inputs together, providing the foundation for robot navigation and human–robot coordination.
 
 ### Public repository URL
 
