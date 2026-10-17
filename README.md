@@ -1,29 +1,59 @@
 # SeeThrough
 
-SeeThrough is an Android app project for indoor navigation. The goal is to help people map walking routes through a building, find important places, and reach each other.
+**Find your people indoors.**
 
-## How it will work
+SeeThrough helps people find each other inside buildings through a shared live floor plan. Participants join from their phones and share their room, while a web dashboard displays people and incoming motion data. The MVP supports confirmed room locations, raw sensor streams, and coordinate visualization as a foundation for indoor navigation.
 
-1. Scan a QR code at a known location to set your starting point.
-2. Walk through the building and record an estimated route using the phone's motion sensors.
-3. Add landmarks such as entrances, stairs, toilets, and coffee stations.
-4. Follow directions to a destination or a friend's shared location.
+[Open the live demo](https://seethrough-live.v-volokitinaa.chatgpt.site) · [API guide](https://seethrough-live.v-volokitinaa.chatgpt.site/api-guide)
 
-Routes are estimates, not architectural floor plans. QR checkpoints and confirmed landmarks help correct positioning drift.
+## Hackathon submission
 
-## Android app
+### Team name
 
-The app will be distributed as a standalone **Android APK**, built locally and uploaded to **GitHub Releases**. Users will be able to download it through a link or QR code and install it on their Android phone. Expo Go will not be required.
+SeeThrough
 
-## Current status
+### All team members — full names and emails
 
-This repository currently contains the project description only. The Android app and a downloadable APK are not available yet.
+| Full name | Email |
+| --- | --- |
+| Veronika Volokitina | v.volokitinaa@gmail.com |
+| William Tobin Edward | williamteboyd@gmail.com |
+| Nick Wright | Nickwright263@gmail.com |
 
+### Short project description
 
-## Public web dashboard and telemetry API
+SeeThrough helps people find each other inside buildings through a shared live floor plan. Participants join from their phones and share their room, while a web dashboard displays people and incoming motion data. The MVP supports confirmed room locations, raw sensor streams, and coordinate visualization as a foundation for indoor navigation.
 
-- [Open SeeThrough Live](https://seethrough-live.v-volokitinaa.chatgpt.site)
-- [API contract](web/docs/API.md)
-- [Web development and deployment instructions](web/README.md)
+### Public repository URL
 
-Create a session, open its phone link, and send room updates or raw motion readings. The native app can post coordinates and IMU batches to the same API. Frontend and persistent backend are deployed together. Source lives in `web/`; the Expo UI remains in `frontend/`.
+https://github.com/vlktna/seeThrough
+
+### Publicly accessible 1-minute demo video URL
+
+**Pending — add the public one-minute video URL before submitting the form.**
+
+The interactive demo is available at https://seethrough-live.v-volokitinaa.chatgpt.site. This is a website, not the requested video.
+
+### Short description of the technology used
+
+React Native with Expo for the mobile UI; React and TypeScript with Vinext/Vite for the web dashboard; Cloudflare Workers for the JSON API; and Cloudflare D1 (SQLite) with Drizzle migrations for persistence. The browser sender uses DeviceMotion for accelerometer and gyroscope data. Session-scoped tokens, batched uploads, and one-second polling connect phones to the dashboard.
+
+## Try the demo
+
+1. Open [SeeThrough Live](https://seethrough-live.v-volokitinaa.chatgpt.site) and select **Create session**.
+2. Open the session's phone connection link on a phone and enter a name.
+3. Select a room; the participant appears on the shared floor plan.
+4. Optionally allow motion capture to stream raw readings. Use the Sensors and JSON tabs to inspect them.
+5. Share the separate viewer link with spectators. Native clients can send room updates, relative coordinates, and IMU batches through the [documented API](https://seethrough-live.v-volokitinaa.chatgpt.site/api-guide).
+
+The browser demo requires no Expo installation. Sensor availability depends on the phone, browser, and permissions. Room confirmation works without sensor access.
+
+## Implementation status
+
+The deployed MVP provides session creation, confirmed room sharing, sensor ingestion, persistent storage, coordinate visualization, and JSON export. Automatic indoor position estimation, architectural scanning, AR navigation, and Wi-Fi fingerprinting are future work. Motion readings alone are not treated as proof of walking.
+
+- [`frontend/`](frontend/) contains the team's React Native / Expo floorplan interface.
+- The deployed web frontend and backend source is available in [`web/` on the web branch](https://github.com/vlktna/seeThrough/tree/codex/live-telemetry-web/web), with integration tracked in [PR #2](https://github.com/vlktna/seeThrough/pull/2).
+- [Web development instructions](https://github.com/vlktna/seeThrough/blob/codex/live-telemetry-web/web/README.md) and [API contract](https://github.com/vlktna/seeThrough/blob/codex/live-telemetry-web/web/docs/API.md) are in English.
+
+The native interface still needs to send data to the API. No standalone APK release is currently available. Demo sessions expire after 24 hours; export data before expiry if needed.
