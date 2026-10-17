@@ -6,7 +6,7 @@ SeeThrough enables indoor coordination between robots, between people, or across
 uses existing Wi-Fi signals to estimate a person’s room and share it on a live map. The same software can be adapted to
 run directly on Wi-Fi-enabled robots, helping participants locate one another, coordinate tasks, and request assistance.
 
-Try the [SeeThrough live demo](https://seethrough-live.v-volokitinaa.chatgpt.site/).
+Try the [SeeThrough live demo](https://seethrough-live.v-volokitinaa.chatgpt.site/). The [Android App](https://github.com/Willboydie/See-Through)
 
 | Full name            | Email                   |
 |----------------------|-------------------------|
