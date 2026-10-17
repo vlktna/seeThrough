@@ -10,7 +10,7 @@ export function Navigation() {
   return <header className="topbar"><a className="wordmark" href="/" aria-label="SeeThrough home"><span className="brand-mark" aria-hidden="true">/</span>See<span>/</span>Through</a><nav className="main-nav" aria-label="Main navigation"><a href="/" aria-current={pathname === '/' ? 'page' : undefined}><Icon name="map-trifold" />Live map</a><a href="/api-guide" aria-current={pathname === '/api-guide' ? 'page' : undefined}>API guide<Icon name="arrow-up-right" /></a></nav></header>;
 }
 export function Footer() {
-  return <footer><a className="footer-brand" href="/">See/Through<span>A shared sense of place.</span></a><nav aria-label="Footer"><a href="/privacy">Data & privacy</a><a href="/api-guide">Developer guide</a><a href="https://github.com/vlktna/seeThrough" target="_blank" rel="noreferrer">GitHub<Icon name="arrow-up-right" /></a></nav></footer>;
+  return <footer><a className="footer-brand" href="/">See/Through<span>Indoor understanding for robots.</span></a><nav aria-label="Footer"><a href="/privacy">Data & privacy</a><a href="/api-guide">Developer guide</a><a href="https://github.com/vlktna/seeThrough" target="_blank" rel="noreferrer">GitHub<Icon name="arrow-up-right" /></a></nav></footer>;
 }
 export function RevealObserver() {
   useEffect(() => {

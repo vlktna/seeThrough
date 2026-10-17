@@ -7,7 +7,7 @@ Interactive contract: https://seethrough-live.v-volokitinaa.chatgpt.site/api-gui
 
 1. Open the dashboard and click **Create session**.
 2. Copy **Open on your phone** and open that link in Safari/Chrome on the phone.
-3. Enter your name and tap your room. The marker appears in the dashboard within about one second.
+3. Enter a device name and tap its room. The marker appears in the dashboard within about one second.
 4. Optionally tap **Allow sensors & start** to stream real browser motion readings. Keep the phone unlocked and the page visible. Stop capture and wait for the queue to reach zero before leaving.
 
 No Expo installation is needed for this browser sender. The native app can use the same API below. Browser sensor support and permissions vary; room confirmation works even without motion access.
@@ -28,8 +28,8 @@ Headers: `Authorization: Bearer {writeToken}`, `Content-Type: application/json`.
 
 ```js
 const body = {
-  deviceId: 'iphone-alex', // stable for this phone
-  name: 'Alex',
+  deviceId: 'mapping-device-01', // stable for this device
+  name: 'Mapping device 01',
   source: 'native', // native | browser | manual | demo
   samples: [{
     id: crypto.randomUUID(), // keep this ID on retries

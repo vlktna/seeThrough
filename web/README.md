@@ -1,6 +1,6 @@
 # SeeThrough Live
 
-Public dashboard and phone telemetry backend for [vlktna/seeThrough](https://github.com/vlktna/seeThrough).
+Robot-focused indoor mapping prototype: a public dashboard and phone telemetry backend for [vlktna/seeThrough](https://github.com/vlktna/seeThrough).
 
 **Live:** https://seethrough-live.v-volokitinaa.chatgpt.site  
 **API guide:** https://seethrough-live.v-volokitinaa.chatgpt.site/api-guide
@@ -22,7 +22,7 @@ The included browser sender works independently of Expo. The native app must be 
 - Browser sender with manual room confirmation, optional real DeviceMotion capture, bounded retry queue, and pause when backgrounded.
 - Live dashboard refreshing every second, device list, coordinate paths, sensor charts, and JSON export.
 
-It does not infer indoor position from acceleration, determine floors, or align coordinate paths to floorplan pixels. Coordinate estimation stays in the mobile app. Browser sensor availability varies; physical iPhone sensor behavior still needs an on-device test.
+Robot localization, route planning, and autonomous control are future work. It does not infer indoor position from acceleration, determine floors, or align coordinate paths to floorplan pixels. Coordinate estimation stays in the mobile app. Browser sensor availability varies; physical iPhone sensor behavior still needs an on-device test.
 
 ## Development
 

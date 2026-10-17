@@ -11,7 +11,7 @@ The original interface used browser fonts, many 9–13px labels, inconsistent sp
 - Self-hosted Manrope at weights 400, 500, 600, and 700; OFL license included.
 - Tailwind-aligned text scale and the skill's spacing scale, larger labels and touch targets.
 - Existing green brand retained with flat surfaces, a floating navigation island, and one primary session action.
-- Phosphor icons with their MIT license; initials replace emoji markers and distinguish people.
+- Phosphor icons with their MIT license; initials replace emoji markers and distinguish devices. Example robot markers are explicitly labeled as illustrative.
 - Consistent hover, pressed, focus, loading, empty and error treatments.
 - Accessible skip link, current-page navigation, custom 404, factual data/privacy page, and share metadata.
 - IntersectionObserver entrances with the skill's easing curve; reduced-motion users receive static content.

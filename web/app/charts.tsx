@@ -26,7 +26,7 @@ export function PathChart({ samples, floor }: { samples: Sample[]; floor: number
     <circle cx={x(points[0].position!.x)} cy={y(points[0].position!.y)} r="5" fill="#ffffff" stroke="#447c70" strokeWidth="3" />
     <circle cx={x(last.position!.x)} cy={y(last.position!.y)} r="8" fill="#b6e36d" stroke="#25473e" strokeWidth="3" />
     <text x="20" y="385" fontSize="12" fill="#6e7a72">X {minX.toFixed(1)}–{maxX.toFixed(1)} m · Y {minY.toFixed(1)}–{maxY.toFixed(1)} m</text>
-  </svg><p className="caption">Coordinates supplied by the phone · independent of the floorplan image · gaps over 15 seconds are not joined.</p></>;
+  </svg><p className="caption">Coordinates supplied by the device · independent of the floorplan image · gaps over 15 seconds are not joined.</p></>;
 }
 export function SensorChart({ samples, kind }: { samples: Sample[]; kind: 'acceleration' | 'accelerationIncludingGravity' | 'gyroscope' }) {
   const points = samples.filter(s => s.imu?.[kind]).sort((a, b) => a.timestamp - b.timestamp).slice(-80);
