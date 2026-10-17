@@ -24,6 +24,8 @@ SeeThrough
 
 SeeThrough is an indoor mapping prototype designed to help robots navigate buildings and work alongside people. People contribute confirmed room locations, coordinates, and motion data through their phones. A live dashboard brings these inputs together, providing the foundation for robot navigation and human–robot coordination.
 
+Try the [SeeThrough live demo](https://seethrough-live.v-volokitinaa.chatgpt.site/).
+
 ### Public repository URL
 
 https://github.com/vlktna/seeThrough
