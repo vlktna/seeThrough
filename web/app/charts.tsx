@@ -1,9 +1,10 @@
 'use client';
+import { Icon } from './ui';
 import type { Sample } from '@/lib/types';
 export function PathChart({ samples, floor }: { samples: Sample[]; floor: number }) {
   const all = samples.filter(s => s.position).sort((a, b) => a.timestamp - b.timestamp);
   const points = all.filter(s => s.position!.floor === floor);
-  if (!points.length) return <div className="empty chart-empty"><span className="empty-icon">↗</span><h3>No coordinates yet</h3><p>Send position.x and position.y in metres from your app. Motion readings alone do not establish a path.</p></div>;
+  if (!points.length) return <div className="empty chart-empty"><span className="empty-icon"><Icon name="path" /></span><h3>No coordinates yet</h3><p>Send position.x and position.y in metres from your app. Motion readings alone do not establish a path.</p></div>;
   const xs = points.map(s => s.position!.x), ys = points.map(s => s.position!.y);
   const minX = Math.min(...xs, 0), maxX = Math.max(...xs, 1), minY = Math.min(...ys, 0), maxY = Math.max(...ys, 1);
   const scale = Math.min(500 / Math.max(maxX - minX, 1), 300 / Math.max(maxY - minY, 1));

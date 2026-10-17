@@ -1,3 +1,4 @@
+import { Footer, Navigation } from '../ui';
 const payload = {
   deviceId: 'iphone-alex', name: 'Alex', source: 'native',
   samples: [{ id: 'unique-sample-001', timestamp: 0, roomNumber: 2,
@@ -5,7 +6,7 @@ const payload = {
     imu: { acceleration: { x: 0.1, y: 0.2, z: -0.1 }, gyroscope: { x: 0, y: 0, z: 0.05 } } }],
 };
 export default function Guide() {
-  return <main className="guide"><header className="topbar"><a className="wordmark" href="/">See<span>/</span>Through</a><a className="text-link" href="/">← Live view</a></header><div className="page-heading"><div><p className="eyebrow">DEVELOPER GUIDE</p><h1>From phone to floor plan.</h1><p className="muted">HTTP + JSON. Works with native apps, Expo, and the browser sender.</p></div></div>
+  return <div className="shell guide"><Navigation /><main id="main-content" tabIndex={-1}><div className="page-heading"><div><p className="eyebrow">For your developers</p><h1>From phone to floor plan.</h1><p className="muted">HTTP + JSON. Works with native apps, Expo, and the browser sender.</p></div></div>
     <article className="guide-card"><h2>1. Create a session</h2><p>Use “Create session” on the dashboard, or call <code>POST /api/sessions</code> with JSON <code>{'{"name":"Hackathon venue"}'}</code>. The response contains <code>session.id</code>, <code>readToken</code>, and <code>writeToken</code>. Keep the write token in the sending app, separate from the read-only dashboard link.</p>
       <h2>2. Send samples from each phone</h2><p>Use the same deviceId for a phone throughout the session. Set timestamp to <code>Date.now()</code> (Unix milliseconds), and generate a new sample ID for every reading. The zero below is a placeholder; replace it before sending.</p><pre>{`POST /api/sessions/{sessionId}/samples\nAuthorization: Bearer {writeToken}\nContent-Type: application/json\n\n${JSON.stringify(payload, null, 2)}`}</pre>
       <p>Each sample needs at least one of <code>roomNumber</code>, <code>position</code>, or <code>imu</code>. Send only the fields your device actually knows. IMU-only messages preserve the previous room and position.</p>
@@ -14,5 +15,5 @@ export default function Guide() {
       <h2>4. Read the live stream</h2><pre>{`GET /api/sessions/{sessionId}?after=0\nAuthorization: Bearer {readToken}`}</pre><p>The response contains session metadata, current devices, samples, cursor, total, and hasMore. Request subsequent pages with the returned cursor; pages contain up to 500 samples. Poll once per second after catching up. <code>GET /api/health</code> checks service availability.</p>
       <h2>Coordinate and sensor conventions</h2><p>The backend records supplied data; it does not infer position from phone shaking. Room locations are explicit assignments. Coordinate paths need an app-side positioning algorithm and common origin. They are not overlaid on the room image without calibration.</p><p>Browser rotationRate is in degrees/second: beta → X, gamma → Y, alpha → Z. The included phone sender multiplies by π/180. DeviceMotion readings vary by device and browser. Native apps should normalize their sensor units before posting.</p>
       <h2>Access and errors</h2><p>The site itself is public; each session uses random bearer keys. Anyone with a viewer link can read that session. Anyone with a phone link can send to it. There is no account login or session discovery. Do not put these tokens in source control.</p><p>400: malformed payload; 401: missing bearer token; 403: wrong token or session; 410: expired session; 413: oversized request; 415: wrong Content-Type; 429: device/session creation limit; 503: transient storage failure. Retry network errors and 503 with backoff; fix other errors before retrying.</p>
-    </article></main>;
+    </article></main><Footer /></div>;
 }
